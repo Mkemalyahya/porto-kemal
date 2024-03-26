@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        transition: background-color 0.5s ease;
+    }
+    #result {
+        font-size: 24px;
+        padding: 10px;
+        width: 200px;
+        text-align: center;
+        margin: 20px auto;
+        border: 2px solid black;
+    }
+</style>
+</head>
+<body>
+<h2>Calculator</h2>
+<input type="number" id="num1">
+<input type="number" id="num2">
+<br><br>
+<button onclick="calculate('+')">+</button>
+<button onclick="calculate('-')">-</button>
+<div id="result">Result</div>
+
+<script>
+function calculate(operator) {
+    var num1 = parseInt(document.getElementById('num1').value);
+    var num2 = parseInt(document.getElementById('num2').value);
+    var resultElement = document.getElementById('result');
+    var result;
+
+    if (operator === '+') {
+        result = num1 + num2;
+    } else if (operator === '-') {
+        result = num1 - num2;
+    }
+
+    resultElement.textContent = result;
+
+    if (result % 2 === 0) {
+        document.body.style.backgroundColor = 'blue';
+    } else {
+        document.body.style.backgroundColor = 'red';
+    }
+}
+</script>
+</body>
+</html>
